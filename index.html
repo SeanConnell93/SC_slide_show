@@ -321,13 +321,7 @@
     </div>
     
     <div class="btns-wrapper">
-        <ul>
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <ul></ul>
     </div>
     
 </section>
@@ -358,6 +352,7 @@
   
   
    
+<!--
    <form action="index.html">
        
        <input id="text" type="text" placeholder="text">
@@ -369,6 +364,7 @@
    </form>
    
    <h1 id="error"> </h1>
+-->
    
     
 </body>
@@ -390,7 +386,7 @@
     var interval_speed = 5000;
     var easing = "easeInOutExpo";
     var ani_speed = 1000;
-    var btns = $(".btns-wrapper ul li");
+    var btns = null;
     var carousel_intval = setInterval(function(){
         move_carousel();
         text_in_carousel();
@@ -426,9 +422,14 @@
         $(imgs).each(function(){
             $(this).css("transform", "translateX(" + move_img + "00%");
             move_img++;
+            $(".btns-wrapper ul").append("<li></li>");
+            btns = $(".btns-wrapper ul li");
+            $(".btns-wrapper ul li").first().addClass("active");
+            
         });
      }
-     
+    
+    // init carousel on ready
     carousel();
      
     function check_arrows(){
@@ -501,16 +502,16 @@
         reset_carousel_interval();
     } 
      
-    $(".right-arrow").on("click", function(){
+    $(document).on("click", ".right-arrow", function(){
         click_next_arrow();
         ripple(this);
     });
-    $(".left-arrow").on("click", function(){
+    $(document).on("click", ".left-arrow", function(){
         click_prev_arrow(); 
         ripple(this);
     });
     
-    $(btns).on("click", function(){
+    $(document).on("click", ".btns-wrapper ul li", function(){
         clearInterval(carousel_intval);
         $(btns).removeClass("active");
         $(this).addClass("active");
@@ -558,20 +559,20 @@
 
     
      
-    function if_empty(btn, check, output) {
-        $(btn).on("click", function(){
-            var check_content = $(check).val(); 
-            if(check_content == "") {
-                var no_val = "One or more vaules entered";
-                $(output).text(no_val);
-                return false;
-            }
-        }); 
-    } 
-     
-    if_empty("button", "#num", "#error");
-     
-    if_empty("button", "#text", "#error");
+//    function if_empty(btn, check, output) {
+//        $(btn).on("click", function(){
+//            var check_content = $(check).val(); 
+//            if(check_content == "") {
+//                var no_val = "One or more vaules entered";
+//                $(output).text(no_val);
+//                return false;
+//            }
+//        }); 
+//    } 
+//     
+//    if_empty("button", "#num", "#error");
+//     
+//    if_empty("button", "#text", "#error");
      
     //check_val("button", "#text2", "#error");
      
