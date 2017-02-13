@@ -1,0 +1,201 @@
+@font-face {
+           font-family: "areoMat";
+           src: url("Aero-Matics-Light.ttf");
+       }
+       * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+       }
+       
+       body {
+           height: 100vh;
+       }
+       
+       
+       .mask {
+           overflow: hidden;
+           position: relative;
+       }
+       
+       .hide {
+           -ms-transform: translateY(100%);
+           transform: translateY(100%);
+       }
+       
+       section {
+           width: 100%;
+           position: relative;
+           margin-bottom: 2.5%;
+           overflow: hidden;
+           opacity: 1;
+           transition: opacity 0.3s ease;
+       }
+       
+       section#opacity {
+           opacity: 0 !important;
+       }
+       
+       #section-wrapper {
+           width: 100%;
+           height: 100vh;
+           background-color: black;
+       }
+       
+       .carousel-wrapper {
+           position: relative;
+           width: 100%;
+           height: 100%;
+           background-color: black;
+       }
+       
+       .carousel {
+           width: 100%;
+           height: 100%;
+           position: absolute;
+           top: 0;
+           background-repeat: no-repeat;
+           background-position: center;
+           background-size: cover !important;
+           
+       }
+       
+       
+       .btns-wrapper {
+           width: 100%;
+           height: 10%;
+           margin: 0 auto;
+           position: absolute;
+           bottom: 5%;
+           left: 0;
+           z-index: 10;
+       }
+       
+       .btns-wrapper ul{
+           margin: 0 auto;
+           text-align: center;
+           position: relative;
+       }
+       
+       .btns-wrapper ul li {
+           background-color: white;
+           width: 15px;
+           height: 15px;
+           list-style-type: none;
+           display: inline-block;
+           margin: 1%;
+           border-radius: 50%;
+           cursor: pointer;
+           position: relative;
+           transition: background-color 0.25s ease;
+           -webkit-tap-highlight-color: transparent;
+           tap-highlight-color: transparent;
+       }
+       
+       .btns-wrapper ul li:hover, .active {
+           background-color: #369fe2 !important;
+       }
+       
+       .carousel .mask {
+           overflow: hidden;
+           position: relative;
+           top: 25%;
+           transform: translateY(-50%);
+       }
+    
+       
+       .carousel-text  {
+           font-family: "areoMat";
+           padding: 0.5% 10%;
+           text-align: right;
+           font-size: 5rem;
+           letter-spacing: 10px;
+           position: relative;
+           color: black;
+           -ms-transition: all 0.2s ease-out;
+           transition: all 0.2s ease;
+           font-weight: 500;
+           text-transform: uppercase;
+           text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+           z-index: 5;
+       }
+       
+       .arrow {
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           cursor: pointer;
+           z-index: 10;
+           background-color: transparent;
+           border: none;
+           padding: 1%;
+           background-color: rgba(255, 255, 255, 0.2);
+           transition: all 0.25s ease;
+           border-radius: 50%;
+           outline: none;
+           overflow: hidden;
+           -webkit-tap-highlight-color: transparent;
+           tap-highlight-color: transparent;
+       }
+       
+       .arrow:hover {
+           background-color: rgba(255, 255, 255, 0.5);
+       }
+       
+       .arrow img{
+           width: 30px;
+           height: 30px;
+       }
+       
+    
+       .left-arrow {
+           left: 2%;
+       }
+       
+       .right-arrow {
+           right: 2%;
+       }
+       
+       .right-arrow:disabled, .left-arrow:disabled {
+           opacity: 0.1;
+           cursor: default;
+       }
+    
+       .ripple {
+           border-radius: 50%;
+           background-color: white;
+           transform: scale(0);
+           opacity: 0;
+           position: absolute;
+           top: 0;
+           bottom: 0;
+           left: 0;
+           right: 0;
+           animation: ripple 0.4s ease-out;
+       }
+       
+       .arrow .ripple {
+           animation: ripple_arrow 0.75s ease-out;
+       }
+       
+       @keyframes ripple {
+           0% {
+               transform: scale(0);
+               opacity: 1;
+           }
+           100% {
+               transform: scale(3.5);
+               opacity: 0;
+           }
+       }
+       
+       @keyframes ripple_arrow {
+           0% {
+               transform: scale(0);
+               opacity: 0.75;
+           }
+           100% {
+               transform: scale(1.75);
+               opacity: 0;
+           }
+       }

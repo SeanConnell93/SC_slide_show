@@ -1,590 +1,65 @@
 <html>
   
-  <head>
-<!--      <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">-->
-  </head>
-   
-   <style>
-       
-       @font-face {
-           font-family: "areoMat";
-           src: url("Aero-Matics-Light.ttf");
-       }
-       * {
-        padding: 0;
-           margin: 0;
-           box-sizing: border-box;
-       }
-       
-       body {
-           height: 100vh;
-       }
-       
-       form *{
-           font-size: 20px;
-       }
-       
-       form {
-           margin: 2%;
-       }
-       
-       .container {
-           padding: 0 5%;
-           width: 100%;
-           height: 90%;
-           padding: 5% 20%;
-           background: black url("music.jpg") no-repeat center; 
-           background-size: cover;
-       }
-       
-       .mask {
-           overflow: hidden;
-           position: relative;
-       }
-       
-       .hide {
-           -ms-transform: translateY(100%);
-           transform: translateY(100%);
-       }
-       
-       .bold-text {
-           font-family: "areoMat";
-           margin: 0 auto;
-           padding: 1%;
-           font-size: 5rem;
-           letter-spacing: 10px;
-           position: relative;
-           color: #ffffff;
-           -ms-transition: all 0.2s ease-out;
-           transition: all 0.2s ease;
-           font-weight: 500;
-           text-transform: uppercase;
-           text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-           display: inline-block;
-       }
-       
-       .vid {
-           width: 80%;
-           margin: 0 auto;
-           position: relative;
-       }
-       
-       iframe {
-           width: 100%;
-           height: 100%;
-           border: none;
-       }
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       section {
-           width: 100%;
-           position: relative;
-           margin-bottom: 2.5%;
-           overflow: hidden;
-           opacity: 1;
-           transition: opacity 0.3s ease;
-       }
-       
-       section#opacity {
-           opacity: 0 !important;
-       }
-       
-       #section-wrapper {
-           width: 100%;
-           height: 100vh;
-           background-color: black;
-       }
-       
-       .carousel-wrapper {
-           position: relative;
-           width: 100%;
-           height: 100%;
-           background-color: black;
-       }
-       
-       .carousel {
-           width: 100%;
-           height: 100%;
-           position: absolute;
-           top: 0;
-           will-change: right;
-           background-size: cover !important;
-           
-       }
-       
-       
-       .btns-wrapper {
-           width: 100%;
-           height: 10%;
-           margin: 0 auto;
-           position: absolute;
-           bottom: 5%;
-           left: 0;
-           z-index: 10;
-       }
-       
-       .btns-wrapper ul{
-           margin: 0 auto;
-           text-align: center;
-           position: relative;
-       }
-       
-       .btns-wrapper ul li {
-           background-color: white;
-           width: 15px;
-           height: 15px;
-           list-style-type: none;
-           display: inline-block;
-           margin: 1%;
-           border-radius: 50%;
-           cursor: pointer;
-           position: relative;
-           transition: background-color 0.25s ease;
-           will-change: background-color;
-           -webkit-tap-highlight-color: transparent;
-           tap-highlight-color: transparent;
-       }
-       
-       .btns-wrapper ul li:hover, .active {
-           background-color: #369fe2 !important;
-       }
-       
-       .carousel .mask {
-           overflow: hidden;
-           position: relative;
-           top: 25%;
-           transform: translateY(-50%);
-       }
-    
-       
-       .carousel-text  {
-           font-family: "areoMat";
-           padding: 0.5% 10%;
-           text-align: right;
-           font-size: 5rem;
-           letter-spacing: 10px;
-           position: relative;
-           color: black;
-           -ms-transition: all 0.2s ease-out;
-           transition: all 0.2s ease;
-           font-weight: 500;
-           text-transform: uppercase;
-           text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-           z-index: 5;
-           will-change: transform;
-       }
-       
-       .arrow {
-           position: absolute;
-           top: 50%;
-           transform: translateY(-50%);
-           cursor: pointer;
-           z-index: 10;
-           background-color: transparent;
-           border: none;
-           padding: 1%;
-           background-color: rgba(255, 255, 255, 0.2);
-           transition: all 0.25s ease;
-           border-radius: 50%;
-           outline: none;
-           overflow: hidden;
-           -webkit-tap-highlight-color: transparent;
-           tap-highlight-color: transparent;
-       }
-       
-       .arrow:hover {
-           background-color: rgba(255, 255, 255, 0.5);
-       }
-       
-       .arrow img{
-           width: 30px;
-           height: 30px;
-       }
-       
-    
-       .left-arrow {
-           left: 2%;
-       }
-       
-       .right-arrow {
-           right: 2%;
-       }
-       
-       .right-arrow:disabled, .left-arrow:disabled {
-           opacity: 0.1;
-           cursor: default;
-       }
-    
-       .ripple {
-           border-radius: 50%;
-           background-color: white;
-           transform: scale(0);
-           opacity: 0;
-           position: absolute;
-           top: 0;
-           bottom: 0;
-           left: 0;
-           right: 0;
-           animation: ripple 0.4s ease-out;
-       }
-       
-       .arrow .ripple {
-           animation: ripple_arrow 0.75s ease-out;
-       }
-       
-       @keyframes ripple {
-           0% {
-               transform: scale(0);
-               opacity: 1;
-           }
-           100% {
-               transform: scale(3.5);
-               opacity: 0;
-           }
-       }
-       
-       @keyframes ripple_arrow {
-           0% {
-               transform: scale(0);
-               opacity: 0.75;
-           }
-           100% {
-               transform: scale(1.75);
-               opacity: 0;
-           }
-       }
-       
-       
-    
-    
+<head>
+    <style>
+        @import 'sc_slider_style.css';
     </style>
-    
-    
+</head> 
+
 <body>
 
 
 <section id="opacity">
     <div id="section-wrapper">
-       
+        <!--       left arrow-->
        <button class="left-arrow arrow" disabled> <img src="arrow-left.png"> </button>
         <div class="carousel-wrapper">
            
-            <div class="carousel" style="background: url(camera.jpg) no-repeat center;">
-                <div class="mask">
-                    <h1 class="carousel-text" style="color: #fff;">Photography</h1>
-                 </div>
+            <div class="carousel" style="background-image: url(camera.jpg);">
+                <h1 class="carousel-text" style="color: #fff;">Photography</h1>
             </div>
             
-            <div class="carousel" style="background: url(music.jpg) no-repeat center;">
-                <div class="mask">
-                    <h1 class="carousel-text hide" style="color: #fff;">lovely</h1>
-                 </div>
-                 <div class="mask">
-                    <h1 class="carousel-text hide" style="color: #fff;">Tunes</h1>
-                 </div>
+            <div class="carousel" style="background-image: url(music.jpg);">
+                <h1 class="carousel-text hide" style="color: #fff;">lovely</h1>
+                <h1 class="carousel-text hide" style="color: #fff;">Tunes</h1>
             </div>
             
-            <div class="carousel" style="background: url(sky.jpg) no-repeat center;">
-                <div class="mask">
-                    <h1 class="carousel-text hide">That view</h1>
-                 </div>
+            <div class="carousel" style="background-image: url(sky.jpg);">
+                <h1 class="carousel-text hide">That view</h1>
             </div>
             
-            <div class="carousel" style="background: url(headphones.jpg) no-repeat center;">
-                <div class="mask"> 
-                    <h1 class="carousel-text hide" style="color: #fff;">headphones</h1>
-                 </div>
+            <div class="carousel" style="background-image: url(headphones.jpg);">
+                <h1 class="carousel-text hide" style="color: #fff;">headphones</h1>
             </div>
             
-            <div class="carousel" style="background: url(reddead.jpg) no-repeat center;">
-                <div class="mask"> 
-                    <h1 class="carousel-text hide" style="color: #fff; font-weight: bold;">red dead</h1>
-                 </div>
-                 <div class="mask"> 
-                    <h1 class="carousel-text hide" style="color: #fff; font-weight: bold;">redemption 2</h1>
-                 </div>
+            <div class="carousel" style="background-image: url(reddead.jpg);">
+                <h1 class="carousel-text hide" style="color: #fff;">red dead</h1>
+                <h1 class="carousel-text hide" style="color: #fff; font-weight: bold;">redemption 2</h1>
             </div>
             
         </div>
+        <!--        right arrow-->
         <button class="right-arrow arrow"><img src="arrow.png"> </button>
     </div>
     
     <div class="btns-wrapper">
-        <ul></ul>
+        <ul>
+            <!--javascript will add the li tags-->
+        </ul>
     </div>
     
 </section>
-
-
- 
-<!--
- <div class="vid">
-     <iframe src="https://youtube.com/embed/PKfxmFU3lWY?autoplay=1&showinfo=0&controls=0">
- </iframe>
- </div>
--->
-
-  
-  
-  <div class="container">
-    <div class="mask">
-         <h1 class="bold-text hide">Peek</h1>
-     </div>
-     <div class="mask">
-         <h1 class="bold-text hide">ah</h1>
-     </div>
-     <div class="mask">
-          <h1 class="bold-text hide">boo</h1>
-      </div>
-  </div>
- 
-  
-  
-   
-<!--
-   <form action="index.html">
-       
-       <input id="text" type="text" placeholder="text">
-       
-       <input id="num" type="number" placeholder="Number">
-       
-       <button type="submit">Submit</button>
-       
-   </form>
-   
-   <h1 id="error"> </h1>
--->
    
     
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="jquery-3.1.1.min.js"></script>
 
- <script>
-     
-    $(window).on("load", function(){
-        $("section#opacity").removeAttr("id #opacity");    
-    }); 
-     
-    // vars for carousel
-    var imgs = $(".carousel");
-    var num_imgs = imgs.length - 1;
-    var forward = true;
-    var current_num = 0;
-    var wrapper = $(".carousel-wrapper");
-    var interval_speed = 5000;
-    var easing = "easeInOutExpo";
-    var ani_speed = 1000;
-    var btns = null;
-    var carousel_intval = setInterval(function(){
-        move_carousel();
-        text_in_carousel();
-    }, interval_speed);
-     
-    var limit_timeout = setTimeout(function(){
-        carousel_intval = setInterval(function(){
-            move_carousel();
-            text_in_carousel();
-        }, interval_speed);
-    }, interval_speed);
-    // dont run at start 
-    clearTimeout(limit_timeout);
-     
-    function move_to_next_slide(){
-        wrapper.animate({right: current_num + "00%"}, ani_speed, easing);
-    }
-    
-    function reset_carousel_interval(){
-        clearTimeout(limit_timeout);
-        
-        limit_timeout = setTimeout(function(){
-            carousel_intval = setInterval(function(){
-                move_carousel();
-                text_in_carousel();
-            }, interval_speed);
-        }, interval_speed);  
-     }
-    
-    // move each img side by side 
-    function carousel(){
-        var move_img = 0;
-        $(imgs).each(function(){
-            $(this).css("transform", "translateX(" + move_img + "00%");
-            move_img++;
-            $(".btns-wrapper ul").append("<li></li>");
-            btns = $(".btns-wrapper ul li");
-            $(".btns-wrapper ul li").first().addClass("active");
-            
-        });
-     }
-    
-    // init carousel on ready
-    carousel();
-     
-    function check_arrows(){
-        if (current_num <= 0) {
-            $(".left-arrow").attr("disabled", true);
-            $(".right-arrow").attr("disabled", false);
-        } else if (current_num >= num_imgs) {
-            $(".right-arrow").attr("disabled", true);
-            $(".left-arrow").attr("disabled", false);
-        } else {
-            $(".left-arrow, .right-arrow").attr("disabled", false);
-        }
-    }
-     
-    function move_carousel(){
-        if (forward && current_num >= num_imgs) {
-            current_num--;
-            move_to_next_slide();
-            forward = false;
-        } else if (!forward && current_num <= 0) {
-            current_num++;
-            move_to_next_slide();
-            forward = true;
-        } else if (!forward){
-            current_num--;
-            move_to_next_slide();
-        } else if (forward) {
-            current_num++;
-            move_to_next_slide();
-        }
-
-        check_arrows();
-        btns.removeClass("active");
-        btns.eq(current_num).addClass("active");
-     }
-     
-    function text_in_carousel(){
-        $(".carousel-text").addClass("hide"); 
-        var current_img = $(".carousel:eq(" + current_num + ") .carousel-text");
-        
-        setTimeout(function(){   
-            current_img.each(function(e){
-               setTimeout(function(){
-                   current_img.eq(e).removeClass("hide");
-               }, 200 * (e+1)); 
-            }); 
-        }, ani_speed);   
-    }
-     
-    function ripple(rippleIn){
-        $(rippleIn).append('<div class="ripple"> </div>');
-        setTimeout(function(){
-            $(".ripple").remove();
-        }, 500);
-    } 
-    
-    function click_next_arrow(){
-        clearInterval(carousel_intval);
-        forward = true;
-        move_carousel();
-        text_in_carousel();
-        reset_carousel_interval();
-    }
-     
-    function click_prev_arrow() {
-        clearInterval(carousel_intval);
-        forward = false;
-        move_carousel();
-        text_in_carousel();
-        reset_carousel_interval();
-    } 
-     
-    $(document).on("click", ".right-arrow", function(){
-        click_next_arrow();
-        ripple(this);
-    });
-    $(document).on("click", ".left-arrow", function(){
-        click_prev_arrow(); 
-        ripple(this);
-    });
-    
-    $(document).on("click", ".btns-wrapper ul li", function(){
-        clearInterval(carousel_intval);
-        $(btns).removeClass("active");
-        $(this).addClass("active");
-        ripple(this);
-        var click_num = $(this).index();
-        current_num = click_num;
-        wrapper.animate({right: click_num + "00%"}, ani_speed, easing);
-        text_in_carousel();
-        check_arrows();
-        reset_carousel_interval();
-    });
-     
-
-    
-     
-    $.extend( $.easing, {
-//	easeInExpo: function (x, t, b, c, d) {
-//		return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-//	},
-//	easeOutExpo: function (x, t, b, c, d) {
-//		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-//	},
-	easeInOutExpo: function (x, t, b, c, d) {
-		if (t==0) return b;
-		if (t==d) return b+c;
-		if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
-		return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
-	}
-});
-     
-     
-     
-     function hide_each(){
-        $(".bold-text").each(function(e){
-             setTimeout(function(){
-                 $(".bold-text").eq(e).toggleClass("hide");
-             }, 200 * (e+1));
-         });
-     }
-     
-     setInterval(function(){
-         hide_each();
-     }, 1500);
-    
-
-    
-     
-//    function if_empty(btn, check, output) {
-//        $(btn).on("click", function(){
-//            var check_content = $(check).val(); 
-//            if(check_content == "") {
-//                var no_val = "One or more vaules entered";
-//                $(output).text(no_val);
-//                return false;
-//            }
-//        }); 
-//    } 
-//     
-//    if_empty("button", "#num", "#error");
-//     
-//    if_empty("button", "#text", "#error");
-     
-    //check_val("button", "#text2", "#error");
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    </script>
+<script src="sc_slider.js"></script>
+<script>
+    //    active slider
+    init_sc_slide_show();
+</script>
 
 
 
