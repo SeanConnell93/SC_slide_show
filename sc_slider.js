@@ -122,7 +122,7 @@ function init_sc_slide_show(){
             reset_carousel_interval();
         }
 
-        function click_prev_arrow() {
+        function click_prev_arrow(){
             clearInterval(carousel_intval);
             forward = false;
             move_carousel();
@@ -140,20 +140,19 @@ function init_sc_slide_show(){
         });
 
         $(document).on("click", li_btns, function(){
-            clearInterval(carousel_intval);
-            $(btns).removeClass("active");
-            $(this).addClass("active");
-            ripple(this);
             var click_num = $(this).index();
-            current_num = click_num;
-            wrapper.animate({right: click_num + "00%"}, ani_speed, easing);
-            text_in_carousel();
-            check_arrows();
-            reset_carousel_interval();
+            if (click_num != current_num) {
+                clearInterval(carousel_intval);
+                $(btns).removeClass("active");
+                $(this).addClass("active");
+                ripple(this);
+                current_num = click_num;
+                wrapper.animate({right: click_num + "00%"}, ani_speed, easing);
+                text_in_carousel();
+                check_arrows();
+                reset_carousel_interval();
+            }
         });
-
-
-
 
         $.extend( $.easing, {
             easeInOutExpo: function (x, t, b, c, d) {
